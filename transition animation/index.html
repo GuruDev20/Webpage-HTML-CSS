@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transition & Animation</title>
+    <style>
+        body{
+            background-color: rgb(206, 234, 247);
+        }
+        .header {
+            background-color: rgb(59, 58, 58);
+            color: white;
+            padding: 6px;
+            text-align: center;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 20px;
+            margin-bottom: 4px;
+        }
+        .transition-container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            max-width: 100%;
+            gap: 10px;
+            overflow-x: auto;
+        }
+        .column {
+            display: flex;
+            flex-direction: column;
+        }
+        .transition {
+            text-align: center;
+            margin: 10px;
+        }
+        .transition img {
+            width: 200px;
+            height: 300px;
+            transition: transform 2s;
+        }
+        .transition h4 {
+            opacity: 0;
+            transition: opacity 0.5s;
+            animation: text 2s ease-in-out infinite;
+        }
+        .transition:hover h4 {
+            opacity: 1;
+        }
+        .transition:hover img {
+            animation: bounce 2s infinite;
+        }
+        @keyframes bounce {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+        @keyframes text {
+            0% {
+                transform: scale(0.7);
+            }
+            50% {
+                transform: scale(1);
+            }
+            100% {
+                transform: scale(0.7);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h3>Transition & Animation</h3>
+    </div>
+    <div class="transition-container">
+        <div class="column">
+            <div class="transition">
+                <img src="naruto.jpg">
+                <h4>Wake up to reality. Nothing ever goes as planned in this accursed world. The longer you live, the more you realize that the only things that truly exist in this reality are merely pain, suffering, and futility. Listen, everywhere you look in this world, wherever there is light, there will always be shadows to be found as well.</h4>
+            </div>
+            <div class="transition">
+                <img src="jujutsu.jpg">
+                <h4>Dying to win and risking death to win are completely different, Megumi. Give it your best. Be greedier.</h4>
+            </div>
+        </div>
+        <div class="column">
+            <div class="transition">
+                <img src="avengers.jpg">
+                <h4>Five years ago, we lost. All of us. We lost friends… We lost family… We lost a part of ourselves. Today, we have a chance to take it all back. You know your teams, you know your missions. Get the stones, get them back. One round-trip each. No mistakes. No do-overs. Most of us are going somewhere we know. That doesn't mean we should know what to expect. Be careful. Look out for each other. This is the fight of our lives.</h4>
+            </div>
+            <div class="transition">
+                <img src="fast.jpg">
+                <h4>I live my life a quarter mile at a time. Nothing else matters: not the mortgage, not the store, not my team and all their bullshit. For those ten seconds or less, I'm free</h4>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
