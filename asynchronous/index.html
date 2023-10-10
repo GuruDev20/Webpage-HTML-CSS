@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors Game</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: rgb(247, 244, 244);
+        }
+
+        #game-container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        img {
+            width: 300px;
+            height: 300px;
+            cursor: pointer;
+        }
+
+        #result {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 28px;
+        }
+    </style>
+</head>
+<body>
+    <div id="game-container">
+        <img id="rock" src="stone.png" alt="Rock">
+        <img id="paper" src="paper.png" alt="Paper">
+        <img id="scissors" src="scissor.png" alt="Scissors">
+    </div>
+    <div id="result">Choose Rock, Paper, or Scissors...</div>
+    <script>
+        const choices = ["rock", "paper", "scissors"];
+        function computerChoice() {
+            return choices[Math.floor(Math.random() * 3)];
+        }
+        function getResult(playerChoice, compChoice) {
+            if (playerChoice === compChoice) return "It's a tie!";
+            if ((playerChoice === "rock" && compChoice === "scissors") ||
+                (playerChoice === "paper" && compChoice === "rock") ||
+                (playerChoice === "scissors" && compChoice === "paper")) {
+                return "You win!";
+            } else {
+                return "Computer wins!";
+            }
+        }
+        async function playGame(playerChoice) {
+            const compChoice = computerChoice();
+            const result = getResult(playerChoice, compChoice);
+            document.getElementById("result").textContent = `Computer chose ${compChoice}. ${result}`;
+            await delay(2000);
+            document.getElementById("result").textContent = "Choose Rock, Paper, or Scissors...";
+        }
+        function delay(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+        document.getElementById("rock").addEventListener("click", () => playGame("rock"));
+        document.getElementById("paper").addEventListener("click", () => playGame("paper"));
+        document.getElementById("scissors").addEventListener("click", () => playGame("scissors"));
+    </script>
+</body>
+</html>
