@@ -1,11 +1,20 @@
 import React from 'react';
-import {BrowserRouter as Router,Route} from 'react-router-dom';
-import Users from './users/pages/Users';
+import {BrowserRouter as Router,Route,Redirect,Switch} from 'react-router-dom';
+import Users from './user/pages/Users';
+import NewPlace from './places/pages/NewPlaces';
 function App(){
-  return <Router>
-    <Route path="/">
-    <Users/>
-    </Route>
-  </Router>
+  return(
+    <Router>
+        <Switch>
+            <Route path="/" exact>
+                <Users/>
+            </Route>
+            <Route path="/places/new" exact>
+                <NewPlace/>
+            </Route>
+            <Redirect to="/"></Redirect>
+        </Switch>
+    </Router>
+  );
 }
 export default App;
