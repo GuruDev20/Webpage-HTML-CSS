@@ -9,7 +9,7 @@ const App=()=>{
     {id:'cg3',text:'Raj'}
   ]);
   const addNewGoalHandler=(newGoal)=>{
-    setCourseGoals(courseGoals.concat(newGoal))
+    setCourseGoals((prevCourseGoals)=>prevCourseGoals.concat(newGoal));
   };
   return(
     <div className='user'>
